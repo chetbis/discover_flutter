@@ -41,53 +41,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     bottom: MediaQuery.of(context).padding.bottom + 20,
                   ),
                   width: MediaQuery.of(context).size.width * 0.6,
-                  child: Column(
+                  child: const Column(
                     children: [
-                      const Spacer(),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            widget.entity.name,
-                            style: const TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          Text(
-                            widget.entity.description,
-                            style: const TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                              height: 1.4,
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          SizedBox(
-                            width: double.infinity,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 20,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                foregroundColor: Colors.white,
-                                backgroundColor: const Color(0xffb7a6a3),
-                              ),
-                              onPressed: () {},
-                              child: const Text(
-                                'Donate',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      )
+                      Spacer(),
                     ],
                   ),
                 ),
@@ -158,11 +114,71 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   fit: BoxFit.cover,
                   child: Hero(
                     tag: widget.entity.imageUrl,
-                    child: Image.asset(widget.entity.imageUrl),
+                    child: Image.asset(
+                      widget.entity.imageUrl,
+                    )
                   ),
                 ),
               ),
             ),
+            Container(
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).padding.top + 20,
+                left: 25,
+                right: 25,
+                bottom: MediaQuery.of(context).padding.bottom + 20,
+              ),
+              width: MediaQuery.of(context).size.width * 0.6,
+              child: Column(
+                children: [
+                  const Spacer(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.entity.name,
+                        style: const TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        widget.entity.description,
+                        style: const TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                          height: 1.4,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 20,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            foregroundColor: Colors.white,
+                            backgroundColor: const Color(0xffb7a6a3),
+                          ),
+                          onPressed: () {},
+                          child: const Text(
+                            'Donate',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
