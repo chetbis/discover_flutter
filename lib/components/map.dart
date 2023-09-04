@@ -15,6 +15,7 @@ class MapArea extends StatelessWidget {
     return Expanded(
       child: Container(
         decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
           color: entity.bgColor,
           image: DecorationImage(
             colorFilter: ColorFilter.mode(
@@ -45,11 +46,14 @@ class MapArea extends StatelessWidget {
                   const SizedBox(
                     height: 5,
                   ),
-                  Text(
-                    entity.location,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Text(
+                      entity.location,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   )
                 ],

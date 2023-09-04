@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 
 class AnimalList extends StatelessWidget {
   final List<Animal> list;
+  final void Function(Animal)? onTap;
 
   const AnimalList({
     super.key,
+    this.onTap,
     required this.list,
   });
 
@@ -18,7 +20,12 @@ class AnimalList extends StatelessWidget {
       ),
       itemCount: list.length,
       itemBuilder: (context, index) {
-        return AnimalCard(entity: list[index]);
+        return AnimalCard(
+          entity: list[index],
+          onTap: () {
+            onTap?.call(list[index]);
+          },
+        );
       },
     );
   }

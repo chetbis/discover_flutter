@@ -1,5 +1,6 @@
 import 'package:discover_app/components/animal_list.dart';
 import 'package:discover_app/models/animal_model.dart';
+import 'package:discover_app/pages/details_screen.dart';
 import 'package:flutter/material.dart';
 
 class DiscoverScreen extends StatefulWidget {
@@ -22,6 +23,15 @@ class _DiscoverScreenState extends State<DiscoverScreen>
       vsync: this,
     );
     super.initState();
+  }
+
+  void _onAnimalTapped(Animal animal) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => DetailsScreen(entity: animal),
+      ),
+    );
   }
 
   @override
@@ -94,11 +104,21 @@ class _DiscoverScreenState extends State<DiscoverScreen>
                   controller: _tabController,
                   children: [
                     AnimalList(
+                      onTap: _onAnimalTapped,
                       list: [...birdData, ...mammalData, ...fishData],
                     ),
-                    AnimalList(list: birdData),
-                    AnimalList(list: fishData),
-                    AnimalList(list: mammalData),
+                    AnimalList(
+                      onTap: _onAnimalTapped,
+                      list: birdData,
+                    ),
+                    AnimalList(
+                      onTap: _onAnimalTapped,
+                      list: fishData,
+                    ),
+                    AnimalList(
+                      onTap: _onAnimalTapped,
+                      list: mammalData,
+                    ),
                   ],
                 ),
               ),
