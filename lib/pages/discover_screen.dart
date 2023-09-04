@@ -80,8 +80,8 @@ class _DiscoverScreenState extends State<DiscoverScreen>
                 height: 20,
               ),
               TabBar(
-                automaticIndicatorColorAdjustment: false,
-                labelPadding: EdgeInsets.zero,
+                isScrollable: true,
+                labelPadding: const EdgeInsets.symmetric(horizontal: 20),
                 indicator: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: Colors.amber,
@@ -96,9 +96,9 @@ class _DiscoverScreenState extends State<DiscoverScreen>
                     AnimalList(
                       list: [...birdData, ...mammalData, ...fishData],
                     ),
+                    AnimalList(list: birdData),
+                    AnimalList(list: fishData),
                     AnimalList(list: mammalData),
-                    AnimalList(list: fishData),
-                    AnimalList(list: fishData),
                   ],
                 ),
               ),
